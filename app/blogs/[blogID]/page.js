@@ -15,6 +15,8 @@ export async function generateMetadata({ params }) {
 
 export const dynamicParams = false; //this disables dynamic params for this route, meaning it will not generate pages for every possible blogID;
 
+//this is incremental static regeneration (ISR) which allows you to generate static pages for dynamic routes
+export const revalidate = 60; //this sets the revalidation time for this route to 60 seconds, meaning it will regenerate the page every 60 seconds if there are changes in the data
 
 
 
@@ -63,6 +65,12 @@ const data = await response.json();
 
 export default async function Blog({ params }) {
   const { blogID } = await params;
+const response = await fetch("https://jsonplaceholder.typicode.com/posts" , {
+  next: {
+    revalidate: 60, // This will revalidate the page every 60 seconds , means refetch data every 60 seconds
+  }
+});
+const data = await response.json();
 
   if (!/^\d+$/.test(blogID)) {
     notFound();
