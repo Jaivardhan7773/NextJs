@@ -1,4 +1,4 @@
-
+import "./global.css";
 export const metadata = {
   title :{
     template : "%s || Technical Agency",
