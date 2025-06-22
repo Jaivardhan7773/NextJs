@@ -16,8 +16,8 @@ export default function WebDev() {
             </Link>
           </li>
           <li>
-            <Link href="/services/seo" className="nav-link">
-              seo
+            <Link href="/blogs" className="nav-link">
+              blogs
             </Link>
           </li>
           <li>
