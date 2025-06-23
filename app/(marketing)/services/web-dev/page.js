@@ -1,4 +1,8 @@
+import Comments from "@/components/comments";
+import Likes from "@/components/likes";
+import Views from "@/components/views";
 import Link from "next/link";
+import { Suspense } from "react";
 
 
 export const metadata = {
@@ -8,31 +12,19 @@ export const metadata = {
 export default function WebDev() {
   return (
     <>
-    <nav>
-        <ul className="navbar">
-          <li>
-            <Link href="/" className="nav-link active">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/blogs" className="nav-link">
-              blogs
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className="nav-link">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link href="/services/web-dev" className="nav-link">
-              web-dev
-            </Link>
-          </li>
-        </ul>
-      </nav>
+   
     <div>This is Web Dev page</div>
+    <Suspense fallback={<div>Loading likes...</div>}>
+
+    <Likes />
+    </Suspense>
+    <Suspense fallback={<div>Loading comments...</div>}>
+
+    <Comments/>
+  </Suspense>
+  <Suspense fallback={<div>Loading views...</div>}>
+    <Views/>
+  </Suspense>
     </>
   )
 }
