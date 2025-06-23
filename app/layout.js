@@ -1,4 +1,5 @@
 import "./global.css";
+import Navbar from "@/components/Navbar";
 export const metadata = {
   title :{
     template : "%s || Technical Agency",
@@ -11,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* <header style={{ background: "teal" }}>Header</header> */}
+       <Navbar/>
 
         {children}
         {/* <footer style={{ background: "brown" }}>Footer</footer> */}
